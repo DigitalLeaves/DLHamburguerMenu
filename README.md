@@ -4,6 +4,8 @@ DLHamburguerMenu is a "hamburguer" sidebar menu control written entirely in swif
 
 Works for iOS 7+
 
+![](http://digitalleaves.com/blog/wp-content/uploads/2015/03/hamburguerMenu.gif)
+
 ## Structure
 
 The menu works by setting a main container view controller, called the "Root" view, and then inserting two view controllers, the menu view controller and the content view controller. The first will contain the sidebar menu, and the second will be the main content of the App, presumably a UINavigationController subclass.
