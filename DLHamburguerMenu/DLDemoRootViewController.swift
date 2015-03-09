@@ -18,9 +18,6 @@ class DLDemoRootViewController: DLHamburguerViewController {
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        // de-register for kAmbatanaSessionInvalidatedNotification
-        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
