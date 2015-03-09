@@ -36,6 +36,7 @@ override func awakeFromNib() {
 
 To properly segue from the content view controller, in your menu, once you have presented (by pushing or showing) another view controller, you should update the content view controller. In the case of a navigation controller, simply assign it as the new content controller once you push the view:
 
+```
 func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
   let nvc = self.mainNavigationController()
     if let hamburguerViewController = self.findHamburguerViewController() {
@@ -45,6 +46,7 @@ func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSInde
       })
     }
 }
+```
     
 The function findHamburguerViewController() can be used to retrieve the current hamburguer view controller, so you can access its content and menu view controllers.
 
