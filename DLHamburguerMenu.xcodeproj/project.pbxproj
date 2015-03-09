@@ -7,46 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66575E2F1AA8B1A1001D71F9 /* DLDemoRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66575E2E1AA8B1A1001D71F9 /* DLDemoRootViewController.swift */; };
+		66575E311AA8B4E5001D71F9 /* DLDemoMainContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66575E301AA8B4E5001D71F9 /* DLDemoMainContentViewController.swift */; };
 		66A298041AA72DD000F39729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A298031AA72DD000F39729 /* AppDelegate.swift */; };
-		66A298061AA72DD000F39729 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A298051AA72DD000F39729 /* ViewController.swift */; };
 		66A298091AA72DD000F39729 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66A298071AA72DD000F39729 /* Main.storyboard */; };
 		66A2980B1AA72DD000F39729 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66A2980A1AA72DD000F39729 /* Images.xcassets */; };
 		66A2980E1AA72DD000F39729 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66A2980C1AA72DD000F39729 /* LaunchScreen.xib */; };
-		66A2981A1AA72DD000F39729 /* DLHamburguerMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A298191AA72DD000F39729 /* DLHamburguerMenuTests.swift */; };
+		66A298281AA7343200F39729 /* DLHamburguerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A298271AA7343200F39729 /* DLHamburguerViewController.swift */; };
+		66A298401AA73D0A00F39729 /* DLHamburguerContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A2983F1AA73D0A00F39729 /* DLHamburguerContainerViewController.swift */; };
+		66A298421AA8974800F39729 /* DLHamburguerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A298411AA8974800F39729 /* DLHamburguerNavigationController.swift */; };
+		66A298451AA89A6200F39729 /* DLDemoMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A298441AA89A6200F39729 /* DLDemoMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		66A298141AA72DD000F39729 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 66A297F61AA72DCF00F39729 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 66A297FD1AA72DD000F39729;
-			remoteInfo = DLHamburguerMenu;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		66575E2E1AA8B1A1001D71F9 /* DLDemoRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLDemoRootViewController.swift; sourceTree = "<group>"; };
+		66575E301AA8B4E5001D71F9 /* DLDemoMainContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLDemoMainContentViewController.swift; sourceTree = "<group>"; };
 		66A297FE1AA72DD000F39729 /* DLHamburguerMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DLHamburguerMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A298021AA72DD000F39729 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66A298031AA72DD000F39729 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		66A298051AA72DD000F39729 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		66A298081AA72DD000F39729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		66A2980A1AA72DD000F39729 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		66A2980D1AA72DD000F39729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		66A298131AA72DD000F39729 /* DLHamburguerMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DLHamburguerMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		66A298181AA72DD000F39729 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		66A298191AA72DD000F39729 /* DLHamburguerMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLHamburguerMenuTests.swift; sourceTree = "<group>"; };
+		66A298271AA7343200F39729 /* DLHamburguerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLHamburguerViewController.swift; sourceTree = "<group>"; };
+		66A2983F1AA73D0A00F39729 /* DLHamburguerContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLHamburguerContainerViewController.swift; sourceTree = "<group>"; };
+		66A298411AA8974800F39729 /* DLHamburguerNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLHamburguerNavigationController.swift; sourceTree = "<group>"; };
+		66A298441AA89A6200F39729 /* DLDemoMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLDemoMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		66A297FB1AA72DD000F39729 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		66A298101AA72DD000F39729 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,7 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				66A298001AA72DD000F39729 /* DLHamburguerMenu */,
-				66A298161AA72DD000F39729 /* DLHamburguerMenuTests */,
 				66A297FF1AA72DD000F39729 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				66A297FE1AA72DD000F39729 /* DLHamburguerMenu.app */,
-				66A298131AA72DD000F39729 /* DLHamburguerMenuTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,11 +64,8 @@
 		66A298001AA72DD000F39729 /* DLHamburguerMenu */ = {
 			isa = PBXGroup;
 			children = (
-				66A298031AA72DD000F39729 /* AppDelegate.swift */,
-				66A298051AA72DD000F39729 /* ViewController.swift */,
-				66A298071AA72DD000F39729 /* Main.storyboard */,
-				66A2980A1AA72DD000F39729 /* Images.xcassets */,
-				66A2980C1AA72DD000F39729 /* LaunchScreen.xib */,
+				66A298431AA89A2B00F39729 /* Demo UI */,
+				66A298231AA7308100F39729 /* Classes */,
 				66A298011AA72DD000F39729 /* Supporting Files */,
 			);
 			path = DLHamburguerMenu;
@@ -95,21 +79,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		66A298161AA72DD000F39729 /* DLHamburguerMenuTests */ = {
+		66A298231AA7308100F39729 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				66A298191AA72DD000F39729 /* DLHamburguerMenuTests.swift */,
-				66A298171AA72DD000F39729 /* Supporting Files */,
+				66A298271AA7343200F39729 /* DLHamburguerViewController.swift */,
+				66A2983F1AA73D0A00F39729 /* DLHamburguerContainerViewController.swift */,
+				66A298411AA8974800F39729 /* DLHamburguerNavigationController.swift */,
 			);
-			path = DLHamburguerMenuTests;
+			name = Classes;
 			sourceTree = "<group>";
 		};
-		66A298171AA72DD000F39729 /* Supporting Files */ = {
+		66A298431AA89A2B00F39729 /* Demo UI */ = {
 			isa = PBXGroup;
 			children = (
-				66A298181AA72DD000F39729 /* Info.plist */,
+				66A298031AA72DD000F39729 /* AppDelegate.swift */,
+				66A298071AA72DD000F39729 /* Main.storyboard */,
+				66A2980A1AA72DD000F39729 /* Images.xcassets */,
+				66A2980C1AA72DD000F39729 /* LaunchScreen.xib */,
+				66A298441AA89A6200F39729 /* DLDemoMenuViewController.swift */,
+				66575E301AA8B4E5001D71F9 /* DLDemoMainContentViewController.swift */,
+				66575E2E1AA8B1A1001D71F9 /* DLDemoRootViewController.swift */,
 			);
-			name = "Supporting Files";
+			name = "Demo UI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,24 +123,6 @@
 			productReference = 66A297FE1AA72DD000F39729 /* DLHamburguerMenu.app */;
 			productType = "com.apple.product-type.application";
 		};
-		66A298121AA72DD000F39729 /* DLHamburguerMenuTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 66A298201AA72DD000F39729 /* Build configuration list for PBXNativeTarget "DLHamburguerMenuTests" */;
-			buildPhases = (
-				66A2980F1AA72DD000F39729 /* Sources */,
-				66A298101AA72DD000F39729 /* Frameworks */,
-				66A298111AA72DD000F39729 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				66A298151AA72DD000F39729 /* PBXTargetDependency */,
-			);
-			name = DLHamburguerMenuTests;
-			productName = DLHamburguerMenuTests;
-			productReference = 66A298131AA72DD000F39729 /* DLHamburguerMenuTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,10 +134,6 @@
 				TargetAttributes = {
 					66A297FD1AA72DD000F39729 = {
 						CreatedOnToolsVersion = 6.1.1;
-					};
-					66A298121AA72DD000F39729 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 66A297FD1AA72DD000F39729;
 					};
 				};
 			};
@@ -182,7 +151,6 @@
 			projectRoot = "";
 			targets = (
 				66A297FD1AA72DD000F39729 /* DLHamburguerMenu */,
-				66A298121AA72DD000F39729 /* DLHamburguerMenuTests */,
 			);
 		};
 /* End PBXProject section */
@@ -198,13 +166,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		66A298111AA72DD000F39729 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -212,28 +173,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66A298061AA72DD000F39729 /* ViewController.swift in Sources */,
+				66A298281AA7343200F39729 /* DLHamburguerViewController.swift in Sources */,
+				66A298421AA8974800F39729 /* DLHamburguerNavigationController.swift in Sources */,
+				66A298401AA73D0A00F39729 /* DLHamburguerContainerViewController.swift in Sources */,
+				66A298451AA89A6200F39729 /* DLDemoMenuViewController.swift in Sources */,
+				66575E311AA8B4E5001D71F9 /* DLDemoMainContentViewController.swift in Sources */,
 				66A298041AA72DD000F39729 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		66A2980F1AA72DD000F39729 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				66A2981A1AA72DD000F39729 /* DLHamburguerMenuTests.swift in Sources */,
+				66575E2F1AA8B1A1001D71F9 /* DLDemoRootViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		66A298151AA72DD000F39729 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 66A297FD1AA72DD000F39729 /* DLHamburguerMenu */;
-			targetProxy = 66A298141AA72DD000F39729 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		66A298071AA72DD000F39729 /* Main.storyboard */ = {
@@ -289,7 +239,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -326,7 +276,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -338,9 +288,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DLHamburguerMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -348,43 +301,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DLHamburguerMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		66A298211AA72DD000F39729 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = DLHamburguerMenuTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DLHamburguerMenu.app/DLHamburguerMenu";
-			};
-			name = Debug;
-		};
-		66A298221AA72DD000F39729 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = DLHamburguerMenuTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DLHamburguerMenu.app/DLHamburguerMenu";
 			};
 			name = Release;
 		};
@@ -407,14 +328,7 @@
 				66A2981F1AA72DD000F39729 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		66A298201AA72DD000F39729 /* Build configuration list for PBXNativeTarget "DLHamburguerMenuTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				66A298211AA72DD000F39729 /* Debug */,
-				66A298221AA72DD000F39729 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
