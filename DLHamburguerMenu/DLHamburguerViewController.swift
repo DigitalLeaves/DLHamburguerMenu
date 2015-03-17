@@ -180,16 +180,24 @@ class DLHamburguerViewController: UIViewController {
         completion?()
     }
     
-    func adjustMenuSize() {
+    func adjustMenuSize(forRotation: Bool = false) {
+        var w: CGFloat = 0.0
+        var h: CGFloat = 0.0
+        
         if desiredMenuViewSize != nil { // Try to adjust to desired values
-            self.actualMenuViewSize = CGSizeMake((desiredMenuViewSize!.width > 0) ? desiredMenuViewSize!.width : contentViewController.view.frame.size.width, (desiredMenuViewSize!.height > 0) ? desiredMenuViewSize!.height : contentViewController.view.frame.size.height)
+            w = desiredMenuViewSize!.width > 0 ? desiredMenuViewSize!.width : contentViewController.view.frame.size.width
+            h = desiredMenuViewSize!.height > 0 ? desiredMenuViewSize!.height : contentViewController.view.frame.size.height
         } else { // Calculate menu size based on direction.
+            var span: CGFloat = 0.0
             if self.menuDirection == .Left || self.menuDirection == .Right {
-                self.actualMenuViewSize = CGSizeMake(self.contentViewController.view.frame.size.width - kDLHamburguerMenuSpan, self.contentViewController.view.frame.size.height)
-            } else {
-                self.actualMenuViewSize = CGSizeMake(self.contentViewController.view.frame.size.width, self.contentViewController.view.frame.size.height - kDLHamburguerMenuSpan)
+                span = kDLHamburguerMenuSpan
             }
+            if forRotation { w = self.contentViewController.view.frame.size.height - span; h = self.contentViewController.view.frame.size.width }
+            else { w = self.contentViewController.view.frame.size.width - span; h = self.contentViewController.view.frame.size.height }
+
         }
+        self.actualMenuViewSize = CGSizeMake(w, h)
+        
     }
 
     /** Hides the menu controller */
@@ -221,12 +229,13 @@ class DLHamburguerViewController: UIViewController {
         super.willAnimateRotationToInterfaceOrientation(toInterfaceOrientation, duration: duration)
         self.delegate?.hamburguerViewController?(self, willAnimateRotationToInterfaceOrientation: toInterfaceOrientation, duration: duration)
         // adjust size of menu if visible only.
-        adjustMenuSize()
+        self.containerViewController.setContainerFrame(self.menuViewController.view.frame)
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
         if !self.menuVisible { self.actualMenuViewSize = CGSizeZero }
+        adjustMenuSize(forRotation: true)
     }
     
     // MARK: - Rotation (iOS 8)
@@ -236,8 +245,13 @@ class DLHamburguerViewController: UIViewController {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         delegate?.hamburguerViewController?(self, willTransitionToSize: size, withTransitionCoordinator: coordinator)
         // adjust menu size if visible
-        adjustMenuSize()
+        coordinator.animateAlongsideTransition({ (context) -> Void in
+            self.containerViewController.setContainerFrame(self.menuViewController.view.frame)
+        }, completion: {(finalContext) -> Void in
+            self.adjustMenuSize(forRotation: true)
+        })
     }
+
 }
 
 
