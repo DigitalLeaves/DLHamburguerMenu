@@ -248,6 +248,7 @@ class DLHamburguerViewController: UIViewController {
         coordinator.animateAlongsideTransition({ (context) -> Void in
             self.containerViewController.setContainerFrame(self.menuViewController.view.frame)
         }, completion: {(finalContext) -> Void in
+            if !self.menuVisible { self.actualMenuViewSize = CGSizeZero }
             self.adjustMenuSize(forRotation: true)
         })
     }
