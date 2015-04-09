@@ -33,7 +33,7 @@ class DLDemoMenuViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell", forIndexPath: indexPath) as! UITableViewCell
         cell.textLabel?.text = segues[indexPath.row]
         return cell
     }
@@ -52,7 +52,7 @@ class DLDemoMenuViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - Navigation
     
     func mainNavigationController() -> DLHamburguerNavigationController {
-        return self.storyboard?.instantiateViewControllerWithIdentifier("DLDemoNavigationViewController") as DLHamburguerNavigationController
+        return self.storyboard?.instantiateViewControllerWithIdentifier("DLDemoNavigationViewController") as! DLHamburguerNavigationController
     }
     
 }
