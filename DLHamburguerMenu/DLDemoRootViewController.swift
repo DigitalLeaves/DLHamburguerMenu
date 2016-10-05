@@ -16,7 +16,7 @@ class DLDemoRootViewController: DLHamburguerViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
     
@@ -26,7 +26,7 @@ class DLDemoRootViewController: DLHamburguerViewController {
     }
     
     override func awakeFromNib() {
-        self.contentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DLDemoNavigationViewController") as! UIViewController
-        self.menuViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DLDemoMenuViewController") as! UIViewController
+        self.contentViewController = self.storyboard?.instantiateViewController(withIdentifier: "DLDemoNavigationViewController")
+        self.menuViewController = self.storyboard?.instantiateViewController(withIdentifier: "DLDemoMenuViewController")
     }
 }

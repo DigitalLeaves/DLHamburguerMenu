@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		66575E2F1AA8B1A1001D71F9 /* DLDemoRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66575E2E1AA8B1A1001D71F9 /* DLDemoRootViewController.swift */; };
 		66575E311AA8B4E5001D71F9 /* DLDemoMainContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66575E301AA8B4E5001D71F9 /* DLDemoMainContentViewController.swift */; };
+		6665ADB71DA544C100CE5162 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6665ADB61DA544C100CE5162 /* Media.xcassets */; };
 		66A298041AA72DD000F39729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A298031AA72DD000F39729 /* AppDelegate.swift */; };
 		66A298091AA72DD000F39729 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66A298071AA72DD000F39729 /* Main.storyboard */; };
 		66A2980B1AA72DD000F39729 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66A2980A1AA72DD000F39729 /* Images.xcassets */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		66575E2E1AA8B1A1001D71F9 /* DLDemoRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLDemoRootViewController.swift; sourceTree = "<group>"; };
 		66575E301AA8B4E5001D71F9 /* DLDemoMainContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLDemoMainContentViewController.swift; sourceTree = "<group>"; };
+		6665ADB61DA544C100CE5162 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		66A297FE1AA72DD000F39729 /* DLHamburguerMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DLHamburguerMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A298021AA72DD000F39729 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66A298031AA72DD000F39729 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				66A298031AA72DD000F39729 /* AppDelegate.swift */,
 				66A298071AA72DD000F39729 /* Main.storyboard */,
 				66A2980A1AA72DD000F39729 /* Images.xcassets */,
+				6665ADB61DA544C100CE5162 /* Media.xcassets */,
 				66A2980C1AA72DD000F39729 /* LaunchScreen.xib */,
 				66A298441AA89A6200F39729 /* DLDemoMenuViewController.swift */,
 				66575E301AA8B4E5001D71F9 /* DLDemoMainContentViewController.swift */,
@@ -129,11 +132,14 @@
 		66A297F61AA72DCF00F39729 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Ignacio Nieto Carvajal";
 				TargetAttributes = {
 					66A297FD1AA72DD000F39729 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -162,6 +168,7 @@
 			files = (
 				66A298091AA72DD000F39729 /* Main.storyboard in Resources */,
 				66A2980E1AA72DD000F39729 /* LaunchScreen.xib in Resources */,
+				6665ADB71DA544C100CE5162 /* Media.xcassets in Resources */,
 				66A2980B1AA72DD000F39729 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +232,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -288,12 +296,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DLHamburguerMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Ignacio-Nieto-Carvajal.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -301,11 +310,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DLHamburguerMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Ignacio-Nieto-Carvajal.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

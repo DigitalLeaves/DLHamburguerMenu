@@ -17,7 +17,7 @@ class DLHamburguerContainerViewController: UIViewController {
     // structure
     weak var hamburguerViewController: DLHamburguerViewController!      // root hamburguer view controller
     var containerView: UIView!                                          // view containing the main content
-    var containerOrigin = CGPointZero                                   // origin of container view
+    var containerOrigin = CGPoint.zero                                   // origin of container view
     var shouldAnimatePresentation = false                               // true if menu presentation should be animated.
     var backgroundFadingView: UIView!                                   // background view that fades content when menu shows up
     
@@ -27,21 +27,21 @@ class DLHamburguerContainerViewController: UIViewController {
         super.viewDidLoad()
 
         // prepare background fading view
-        backgroundFadingView = UIView(frame: CGRectNull)
-        backgroundFadingView.backgroundColor = UIColor.blackColor()
+        backgroundFadingView = UIView(frame: CGRect.null)
+        backgroundFadingView.backgroundColor = UIColor.black
         backgroundFadingView.alpha = 0.0
-        view.addSubview(backgroundFadingView)
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: "tapGestureRecognized:")
+        self.view.addSubview(backgroundFadingView)
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DLHamburguerContainerViewController.tapGestureRecognized(_:)))
         backgroundFadingView.addGestureRecognizer(gestureRecognizer)
 
         // prepare container view
-        containerView = UIView(frame: CGRectMake(0, 0, kDLHamburguerInitialContainerViewWidth, view.frame.size.height))
+        containerView = UIView(frame: CGRect(x: 0, y: 0, width: kDLHamburguerInitialContainerViewWidth, height: view.frame.size.height))
         containerView.clipsToBounds = true
         self.view.addSubview(containerView)
         
         // We need to set a toolbar so the menu controller's content won't overlap the topbar.
         let toolbar = UIToolbar(frame: self.view.bounds)
-        toolbar.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+        toolbar.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         toolbar.barStyle = self.hamburguerViewController.menuBackgroundStyle.toBarStyle()
         self.containerView.addSubview(toolbar)
         
@@ -50,8 +50,9 @@ class DLHamburguerContainerViewController: UIViewController {
             self.addChildViewController(self.hamburguerViewController.menuViewController)
             self.hamburguerViewController.menuViewController.view.frame = self.containerView.bounds
             self.containerView.addSubview(self.hamburguerViewController.menuViewController.view)
-            self.hamburguerViewController.menuViewController.didMoveToParentViewController(self)
+            self.hamburguerViewController.menuViewController.didMove(toParentViewController: self)
         }
+
         self.view.addGestureRecognizer(self.hamburguerViewController.gestureRecognizer!)
     }
 
@@ -60,20 +61,20 @@ class DLHamburguerContainerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if !hamburguerViewController.menuVisible {
             hamburguerViewController.menuViewController.view.frame = containerView.bounds
             switch (hamburguerViewController.menuDirection) {
-            case .Left:
-                self.setContainerFrame(CGRectMake(-self.hamburguerViewController.actualMenuViewSize.width, 0, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height))
-            case .Right:
-                self.setContainerFrame(CGRectMake(self.view.frame.size.width, 0, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height))
-            case .Top:
-                self.setContainerFrame(CGRectMake(0, -self.hamburguerViewController.actualMenuViewSize.height, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height))
-            case .Bottom:
-                self.setContainerFrame(CGRectMake(0, self.view.frame.size.height, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height))
+            case .left:
+                self.setContainerFrame(CGRect(x: -self.hamburguerViewController.actualMenuViewSize.width, y: 0, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height))
+            case .right:
+                self.setContainerFrame(CGRect(x: self.view.frame.size.width, y: 0, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height))
+            case .top:
+                self.setContainerFrame(CGRect(x: 0, y: -self.hamburguerViewController.actualMenuViewSize.height, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height))
+            case .bottom:
+                self.setContainerFrame(CGRect(x: 0, y: self.view.frame.size.height, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height))
             }
         }
         // If we should animate the presentation, show it now.
@@ -83,7 +84,7 @@ class DLHamburguerContainerViewController: UIViewController {
     
     // MARK: - Frame, appearance and size adjustments
     
-    func setContainerFrame(frame: CGRect) {
+    func setContainerFrame(_ frame: CGRect) {
         var x:CGFloat = 0
         var y:CGFloat = 0
         var w:CGFloat = 0
@@ -91,22 +92,22 @@ class DLHamburguerContainerViewController: UIViewController {
 
         // calculate overlay alpha background view frame
         switch (hamburguerViewController.menuDirection) {
-        case .Left:
+        case .left:
             x = frame.origin.x + frame.size.width
             y = 0
             w = self.view.frame.width - frame.size.width - frame.origin.x
             h = self.view.frame.size.height
-        case .Right:
+        case .right:
             x = 0
             y = 0
             w = frame.origin.x
             h = self.view.frame.size.height
-        case .Top:
+        case .top:
             x = frame.origin.x
             y = frame.origin.y + frame.size.height
             w = frame.size.width
             h = self.view.frame.size.height
-        case .Bottom:
+        case .bottom:
             x = frame.origin.x
             y = 0
             w = frame.size.width
@@ -114,27 +115,27 @@ class DLHamburguerContainerViewController: UIViewController {
         }
 
         // assign overlay and container view
-        let shadowFrame = CGRectMake(x, y, w, h)
+        let shadowFrame = CGRect(x: x, y: y, width: w, height: h)
         self.backgroundFadingView.frame = shadowFrame
         self.containerView.frame = frame
     }
     
-    func resizeToSize(size: CGSize) {
-        var newFrame = CGRectZero
+    func resizeToSize(_ size: CGSize) {
+        var newFrame = CGRect.zero
         // adjust size depending on menu direction.
         switch (self.hamburguerViewController.menuDirection) {
-        case .Left:
-            newFrame = CGRectMake(0, 0, size.width, size.height)
-        case .Right:
-            newFrame = CGRectMake(self.view.frame.size.width - size.width, 0, size.width, size.height)
-        case .Top:
-            newFrame = CGRectMake(0, 0, size.width, size.height)
-        case .Bottom:
-            newFrame = CGRectMake(0, self.view.frame.size.height - size.height, size.width, size.height)
+        case .left:
+            newFrame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        case .right:
+            newFrame = CGRect(x: self.view.frame.size.width - size.width, y: 0, width: size.width, height: size.height)
+        case .top:
+            newFrame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        case .bottom:
+            newFrame = CGRect(x: 0, y: self.view.frame.size.height - size.height, width: size.width, height: size.height)
         }
         
         // animated resizing.
-        UIView.animateWithDuration(self.hamburguerViewController.animationDuration, animations: { () -> Void in
+        UIView.animate(withDuration: self.hamburguerViewController.animationDuration, animations: { () -> Void in
             self.setContainerFrame(newFrame)
             self.backgroundFadingView.alpha = self.hamburguerViewController.overlayAlpha
         })
@@ -145,28 +146,28 @@ class DLHamburguerContainerViewController: UIViewController {
     /** Shows the menu. */
     func show() {
         // calculate the final frame for the menu
-        var finalFrame = CGRectZero
+        var finalFrame = CGRect.zero
         switch (self.hamburguerViewController.menuDirection) {
-        case .Left:
-            finalFrame = CGRectMake(0, 0, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height)
-        case .Right:
-            finalFrame = CGRectMake(self.view.frame.size.width - self.hamburguerViewController.actualMenuViewSize.width, 0, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height)
-        case .Top:
-            finalFrame = CGRectMake(0, 0, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height)
-        case .Bottom:
-            finalFrame = CGRectMake(0, self.view.frame.size.height - self.hamburguerViewController.actualMenuViewSize.height, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height)
+        case .left:
+            finalFrame = CGRect(x: 0, y: 0, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height)
+        case .right:
+            finalFrame = CGRect(x: self.view.frame.size.width - self.hamburguerViewController.actualMenuViewSize.width, y: 0, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height)
+        case .top:
+            finalFrame = CGRect(x: 0, y: 0, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height)
+        case .bottom:
+            finalFrame = CGRect(x: 0, y: self.view.frame.size.height - self.hamburguerViewController.actualMenuViewSize.height, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height)
         }
         
         // set final frame animated
-        UIView.animateWithDuration(self.hamburguerViewController.animationDuration, animations: { () -> Void in
+        UIView.animate(withDuration: self.hamburguerViewController.animationDuration, animations: { () -> Void in
             self.setContainerFrame(finalFrame)
             self.backgroundFadingView.alpha = self.hamburguerViewController.overlayAlpha
-        }) { (success) -> Void in
+        }, completion: { (success) -> Void in
             // inform the delegate.
             if self.hamburguerViewController.delegate != nil {
                 self.hamburguerViewController.delegate?.hamburguerViewController?(self.hamburguerViewController, didShowMenuViewController: self.hamburguerViewController.menuViewController)
             }
-        }
+        }) 
     }
     
     /** Hides the menu. */
@@ -175,59 +176,61 @@ class DLHamburguerContainerViewController: UIViewController {
     }
     
     /** Hides the menu with a completion closure. */
-    func hideWithCompletion(completion: ((Void) -> Void)?) {
+    func hideWithCompletion(_ completion: ((Void) -> Void)?) {
         // inform the delegate that the menu will hide
         self.hamburguerViewController.delegate?.hamburguerViewController?(self.hamburguerViewController, willHideMenuViewController: self.hamburguerViewController.menuViewController)
         
         // calculate new frame depending on menu direction
-        var newFrame = CGRectZero
+        var newFrame = CGRect.zero
         switch (hamburguerViewController.menuDirection) {
-        case .Left:
-            newFrame = CGRectMake(-self.hamburguerViewController.actualMenuViewSize.width, 0, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height)
-        case .Right:
-            newFrame = CGRectMake(self.view.frame.size.width, 0, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height)
-        case .Top:
-            newFrame = CGRectMake(0, -self.hamburguerViewController.actualMenuViewSize.height, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height)
-        case .Bottom:
-            newFrame = CGRectMake(0, self.view.frame.size.height, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height)
+        case .left:
+            newFrame = CGRect(x: -self.hamburguerViewController.actualMenuViewSize.width, y: 0, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height)
+        case .right:
+            newFrame = CGRect(x: self.view.frame.size.width, y: 0, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height)
+        case .top:
+            newFrame = CGRect(x: 0, y: -self.hamburguerViewController.actualMenuViewSize.height, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height)
+        case .bottom:
+            newFrame = CGRect(x: 0, y: self.view.frame.size.height, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height)
         }
         
         // animate hiding.
-        UIView.animateWithDuration(self.hamburguerViewController.animationDuration, animations: { () -> Void in
+        UIView.animate(withDuration: self.hamburguerViewController.animationDuration, animations: { () -> Void in
             self.setContainerFrame(newFrame)
             self.backgroundFadingView.alpha = 0
-        }) { (success) -> Void in
+        }, completion: { (success) -> Void in
             self.hamburguerViewController.menuVisible = false
             self.hamburguerViewController.hamburguerHideController(self)
             self.hamburguerViewController.delegate?.hamburguerViewController?(self.hamburguerViewController, didHideMenuViewController: self.hamburguerViewController.menuViewController)
             completion?()
-        }
+        }) 
     }
     
     // MARK: - Gesture recognizer
     // TAP: hide the menu
-    func tapGestureRecognized(recognizer: UITapGestureRecognizer) {
+    func tapGestureRecognized(_ recognizer: UITapGestureRecognizer) {
         self.hide()
     }
     
     // PAN: animate menu appearance/dissapearace with the menu.
-    func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
+    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         // inform the delegate
         self.hamburguerViewController.delegate?.hamburguerViewController?(self.hamburguerViewController, didPerformPanGesture: recognizer)
         // is the gesture recognizer enabled?
         if !self.hamburguerViewController.gestureEnabled { return }
         
         // React to recognizer
-        let point = recognizer.translationInView(self.view)
+        let point = recognizer.translation(in: self.view)
         
         // start: set initial container origin
-        if recognizer.state == .Began { self.containerOrigin = self.containerView.frame.origin }
+        if recognizer.state == .began {
+            self.containerOrigin = self.containerView.frame.origin
+        }
         // changed: adjust frame
-        else if recognizer.state == .Changed {
+        else if recognizer.state == .changed {
             var frame = self.containerView.frame
             
             switch (hamburguerViewController.menuDirection) {
-            case .Left:
+            case .left:
                 frame.origin.x = self.containerOrigin.x + point.x
                 if frame.origin.x > 0 {
                     frame.origin.x = 0
@@ -236,7 +239,7 @@ class DLHamburguerContainerViewController: UIViewController {
                         if frame.size.width > self.view.frame.size.width { frame.size.width = self.view.frame.size.width }
                     }
                 }
-            case .Right:
+            case .right:
                 frame.origin.x = self.containerOrigin.x + point.x
                 if frame.origin.x < self.view.frame.size.width - self.hamburguerViewController.actualMenuViewSize.width {
                     frame.origin.x = self.view.frame.size.width - self.hamburguerViewController.actualMenuViewSize.width
@@ -246,7 +249,7 @@ class DLHamburguerContainerViewController: UIViewController {
                         frame.size.width = self.view.frame.size.width - frame.origin.x
                     }
                 }
-            case .Top:
+            case .top:
                 frame.origin.y = self.containerOrigin.y + point.y
                 if frame.origin.y > 0 {
                     frame.origin.y = 0
@@ -256,7 +259,7 @@ class DLHamburguerContainerViewController: UIViewController {
                         if frame.size.height > self.view.frame.size.height { frame.size.height = self.view.frame.size.height }
                     }
                 }
-            case .Bottom:
+            case .bottom:
                 frame.origin.y = self.containerOrigin.y + point.y
                 if frame.origin.y < self.view.frame.size.height - self.hamburguerViewController.actualMenuViewSize.height {
                     frame.origin.y = self.view.frame.size.height - self.hamburguerViewController.actualMenuViewSize.height
@@ -272,19 +275,19 @@ class DLHamburguerContainerViewController: UIViewController {
         }
         
         // end: decide whether to open or close the menu based on the position
-        else if recognizer.state == .Ended {
+        else if recognizer.state == .ended {
             switch (hamburguerViewController.menuDirection) {
-            case .Left:
-                if recognizer.velocityInView(self.view).x < 0 { self.hide() }
+            case .left:
+                if recognizer.velocity(in: self.view).x < 0 { self.hide() }
                 else { self.show() }
-            case .Right:
-                if recognizer.velocityInView(self.view).x < 0 { self.show() }
+            case .right:
+                if recognizer.velocity(in: self.view).x < 0 { self.show() }
                 else { self.hide() }
-            case .Top:
-                if recognizer.velocityInView(self.view).y < 0 { self.hide() }
+            case .top:
+                if recognizer.velocity(in: self.view).y < 0 { self.hide() }
                 else { self.show() }
-            case .Bottom:
-                if recognizer.velocityInView(self.view).y < 0 { self.show() }
+            case .bottom:
+                if recognizer.velocity(in: self.view).y < 0 { self.show() }
                 else { self.hide() }
             }
         }
@@ -292,32 +295,36 @@ class DLHamburguerContainerViewController: UIViewController {
     
     // MARK: - Rotation and transition reacting.
     
-    func fixLayoutWithDuration(duration: NSTimeInterval) {
-        var newFrame = CGRectZero
+    func fixLayoutWithDuration(_ duration: TimeInterval) {
+        var newFrame = CGRect.zero
         switch (hamburguerViewController.menuDirection) {
-        case .Left:
-            newFrame = CGRectMake(0, 0, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height)
-        case .Right:
-            newFrame = CGRectMake(self.view.frame.size.width - self.hamburguerViewController.actualMenuViewSize.width, 0, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height)
-        case .Top:
-            newFrame = CGRectMake(0, 0, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height)
-        case .Bottom:
-            newFrame = CGRectMake(0, self.view.frame.size.height - self.hamburguerViewController.actualMenuViewSize.height, self.hamburguerViewController.actualMenuViewSize.width, self.hamburguerViewController.actualMenuViewSize.height)
+        case .left:
+            newFrame = CGRect(x: 0, y: 0, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height)
+        case .right:
+            newFrame = CGRect(x: self.view.frame.size.width - self.hamburguerViewController.actualMenuViewSize.width, y: 0, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height)
+        case .top:
+            newFrame = CGRect(x: 0, y: 0, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height)
+        case .bottom:
+            newFrame = CGRect(x: 0, y: self.view.frame.size.height - self.hamburguerViewController.actualMenuViewSize.height, width: self.hamburguerViewController.actualMenuViewSize.width, height: self.hamburguerViewController.actualMenuViewSize.height)
         }
         self.setContainerFrame(newFrame)
         backgroundFadingView.alpha = hamburguerViewController.overlayAlpha
     }
     
     // iOS7 Rotation legacy support.
-    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        super.willAnimateRotationToInterfaceOrientation(toInterfaceOrientation, duration: duration)
+    override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+        super.willAnimateRotation(to: toInterfaceOrientation, duration: duration)
         self.fixLayoutWithDuration(duration)
     }
     
     // iOS 8 Transition.
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        self.fixLayoutWithDuration(coordinator.transitionDuration())
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if #available(iOS 8.0, *) {
+            super.viewWillTransition(to: size, with: coordinator)
+        } else {
+            // Fallback on earlier versions
+        }
+        self.fixLayoutWithDuration(coordinator.transitionDuration)
     }
     
     

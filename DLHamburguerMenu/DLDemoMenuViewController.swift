@@ -28,22 +28,22 @@ class DLDemoMenuViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: UITableViewDelegate&DataSource methods
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return segues.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell", forIndexPath: indexPath) as! UITableViewCell
-        cell.textLabel?.text = segues[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) 
+        cell.textLabel?.text = segues[(indexPath as NSIndexPath).row]
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let nvc = self.mainNavigationController()
         if let hamburguerViewController = self.findHamburguerViewController() {
             hamburguerViewController.hideMenuViewControllerWithCompletion({ () -> Void in
-                nvc.visibleViewController.performSegueWithIdentifier(self.segues[indexPath.row], sender: nil)
+                nvc.visibleViewController?.performSegue(withIdentifier: self.segues[(indexPath as NSIndexPath).row], sender: nil)
                 hamburguerViewController.contentViewController = nvc
             })
         }
@@ -52,7 +52,7 @@ class DLDemoMenuViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - Navigation
     
     func mainNavigationController() -> DLHamburguerNavigationController {
-        return self.storyboard?.instantiateViewControllerWithIdentifier("DLDemoNavigationViewController") as! DLHamburguerNavigationController
+        return self.storyboard?.instantiateViewController(withIdentifier: "DLDemoNavigationViewController") as! DLHamburguerNavigationController
     }
     
 }

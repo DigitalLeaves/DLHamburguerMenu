@@ -32,7 +32,26 @@ class DLDemoMainContentViewController: UIViewController {
     }
     */
 
-    @IBAction func menuButtonTouched(sender: AnyObject) {
+    @IBAction func menuButtonTouched(_ sender: AnyObject) {
         self.findHamburguerViewController()?.showMenuViewController()
     }
+    
+    // MARK: - Button actions
+    
+    @IBAction func setTopMenu(_ sender: AnyObject) {
+        self.findHamburguerViewController()?.menuDirection = .top
+    }
+    
+    @IBAction func setBottomMenu(_ sender: AnyObject) {
+        self.findHamburguerViewController()?.menuDirection = .bottom
+    }
+    
+    @IBAction func setLeftMenu(_ sender: AnyObject) {
+        self.findHamburguerViewController()?.menuDirection = .left
+    }
+    
+    @IBAction func setRightMenu(_ sender: AnyObject) {
+        self.findHamburguerViewController()?.menuDirection = .right
+    }
+    
 }
