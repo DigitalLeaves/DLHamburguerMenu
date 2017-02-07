@@ -4,7 +4,7 @@ DLHamburguerMenu is a "hamburguer" sidebar menu control written entirely in swif
 
 Works for iOS 7+
 
-![](http://digitalleaves.com/blog/wp-content/uploads/2015/03/hamburguerMenu.gif)
+![](http://digitalleaves.com/wp-content/uploads/2015/03/hamburguerMenu.gif)
 
 ## Structure
 
@@ -17,7 +17,7 @@ For convinience, a UINavigationController subclass called DLHamburguerNavigation
 * A view controller that acts as the main content, possibly embeded in a DLHamburguerNavigationController.
 * Whatever other view controllers that are accesed by means of a segue from the content view controller.
 
-![](http://digitalleaves.com/blog/wp-content/uploads/2015/03/Captura-de-pantalla-2015-03-09-a-las-10.27.08.png)
+![](http://digitalleaves.com/wp-content/uploads/2015/03/Captura-de-pantalla-2015-03-09-a-las-10.27.08.png)
 
 ## Use & Integration.
 
