@@ -20,7 +20,7 @@ class DLHamburguerNavigationController: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
-    func panGestureRecognized(_ sender: UIPanGestureRecognizer!) {
+    @objc func panGestureRecognized(_ sender: UIPanGestureRecognizer!) {
         // dismiss keyboard
         self.view.endEditing(true)
         self.findHamburguerViewController()?.view.endEditing(true)

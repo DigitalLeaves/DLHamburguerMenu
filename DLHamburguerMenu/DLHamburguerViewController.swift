@@ -169,7 +169,7 @@ class DLHamburguerViewController: UIViewController {
     func showMenuViewController() { self.showMenuViewControllerAnimated(true, completion: nil) }
     
     /** Detailed function for presenting the menu, with options */
-    func showMenuViewControllerAnimated(_ animated: Bool, completion: ((Void) -> Void)? = nil) {
+    func showMenuViewControllerAnimated(_ animated: Bool, completion:  (() -> Void)? = nil) {
         // inform that the menu will show
         delegate?.hamburguerViewController?(self, willShowMenuViewController: self.menuViewController)
         
@@ -206,9 +206,11 @@ class DLHamburguerViewController: UIViewController {
     }
 
     /** Hides the menu controller */
-    func hideMenuViewControllerWithCompletion(_ completion: ((Void) -> Void)?) {
+    func hideMenuViewControllerWithCompletion(_ completion: (() -> Void)?) {
         if !self.menuVisible { completion?(); return }
-        self.containerViewController.hideWithCompletion(completion)
+        self.containerViewController.hideWithCompletion {
+            completion!()
+        }
     }
 
     func resizeMenuViewControllerToSize(_ size: CGSize) {
@@ -217,7 +219,7 @@ class DLHamburguerViewController: UIViewController {
     
     // MARK: - Gesture recognizer
     
-    func panGestureRecognized (_ recognizer: UIPanGestureRecognizer) {
+    @objc func panGestureRecognized (_ recognizer: UIPanGestureRecognizer) {
         self.delegate?.hamburguerViewController?(self, didPerformPanGesture: recognizer)
         if self.gestureEnabled {
             if recognizer.state == .began && shouldStartShowingMenu(recognizer) { self.showMenuViewControllerAnimated(true, completion: nil) }

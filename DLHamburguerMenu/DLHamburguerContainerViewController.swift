@@ -176,7 +176,7 @@ class DLHamburguerContainerViewController: UIViewController {
     }
     
     /** Hides the menu with a completion closure. */
-    func hideWithCompletion(_ completion: ((Void) -> Void)?) {
+    func hideWithCompletion(_ completion: (() -> Void)?) {
         // inform the delegate that the menu will hide
         self.hamburguerViewController.delegate?.hamburguerViewController?(self.hamburguerViewController, willHideMenuViewController: self.hamburguerViewController.menuViewController)
         
@@ -202,12 +202,12 @@ class DLHamburguerContainerViewController: UIViewController {
             self.hamburguerViewController.hamburguerHideController(self)
             self.hamburguerViewController.delegate?.hamburguerViewController?(self.hamburguerViewController, didHideMenuViewController: self.hamburguerViewController.menuViewController)
             completion?()
-        }) 
+        })
     }
     
     // MARK: - Gesture recognizer
     // TAP: hide the menu
-    func tapGestureRecognized(_ recognizer: UITapGestureRecognizer) {
+    @objc func tapGestureRecognized(_ recognizer: UITapGestureRecognizer) {
         self.hide()
     }
     

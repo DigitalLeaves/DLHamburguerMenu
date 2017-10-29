@@ -42,10 +42,10 @@ class DLDemoMenuViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let nvc = self.mainNavigationController()
         if let hamburguerViewController = self.findHamburguerViewController() {
-            hamburguerViewController.hideMenuViewControllerWithCompletion({ () -> Void in
+            hamburguerViewController.hideMenuViewControllerWithCompletion({
                 nvc.visibleViewController?.performSegue(withIdentifier: self.segues[(indexPath as NSIndexPath).row], sender: nil)
                 hamburguerViewController.contentViewController = nvc
-            })
+                })
         }
     }
     
